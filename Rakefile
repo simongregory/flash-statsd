@@ -25,7 +25,6 @@ end
 
 acompc "bin/#{swc}" do |t|
   t.load_config << 'src/StatsD-config.xml'
-  t.debug = true
 end
 
 desc "Compile the SWC library file"
@@ -37,9 +36,6 @@ task :swc => "bin/#{swc}"
 # Compile the unit test swf
 amxmlc "bin/StatsDRunner.swf" do |t|
   t.input = 'test/StatsDRunner.mxml'
-  t.library_path << 'lib'
-  t.source_path << 'test' << 'src'
-  t.debug = true
 end
 
 task :generate_focused_tests do
@@ -72,7 +68,7 @@ task :t => [:generate_focused_tests, :unit]
 # Headers
 
 headers do |t|
-  t.copyright = 'Copyright MMXIII The orginal author or authors.'
+  t.copyright = 'Copyright MMXIII The original author or authors.'
 end
 
 manifest do |t|

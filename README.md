@@ -1,25 +1,21 @@
-# StatsD for ActionsScript 3
+# Flash StatsD
 
 An ActionScript 3 client for [StatsD](https://github.com/etsy/statsd), Etsy's daemon for easy stats aggregation.
 
-This library only works from the (AIR)[http://www.adobe.com/air] runtime.
+UDP support is only available to the [AIR](http://www.adobe.com/air) runtime. It will fail on other platforms.
 
 ## Usage
 
     import org.helvector.StatsD;
     
-    client = Statsd::Client.new(host, port);
-    client.send('a.stat');
+    client = new StatsD(host, port);
+    client.counter('stat', 1);
 
-# Notes
+## Notes
 
+[Statsd Spec](https://github.com/b/statsd_spec)
 [Etsy Clients](https://github.com/etsy/statsd/wiki)
-[js](https://github.com/sivy/node-statsd/blob/master/lib/statsd.js)
-[rb](https://github.com/reinh/statsd/)
-[go](https://github.com/cactus/go-statsd-client/blob/master/statsd/main.go)
-[java](https://github.com/youdevise/java-statsd-client/blob/master/src/main/java/com/timgroup/statsd/StatsDClient.java)
 
 ## Copyright
 
-Copyright (c) 2013 Simon Gregory. See LICENSE.txt for
-further details.
+Copyright MMXIII Simon Gregory. See LICENSE for further details.

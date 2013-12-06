@@ -6,9 +6,10 @@
 	<default-frame-rate>20</default-frame-rate>
 
 	<static-link-runtime-shared-libraries>true</static-link-runtime-shared-libraries>
-	<!-- <target-player>10</target-player> -->
+	<target-player>11.1</target-player>
 
 	<compiler>
+        <debug>true</debug>
 		<incremental>true</incremental>
 		<optimize>true</optimize>
 		<keep-generated-actionscript>false</keep-generated-actionscript>
@@ -17,5 +18,15 @@
 		<show-actionscript-warnings>true</show-actionscript-warnings>
 		<show-binding-warnings>true</show-binding-warnings>
 		<show-unused-type-selector-warnings>true</show-unused-type-selector-warnings>
+
+        <source-path append="true">
+            <path-element>../test/</path-element>
+            <path-element>../src/</path-element>
+        </source-path>
+
+        <library-path append="true">
+            <path-element>../lib/</path-element>
+        </library-path>
 	</compiler>
+
 </flex-config>

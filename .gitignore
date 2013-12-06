@@ -1,6 +1,5 @@
-StatsDAS3.iml
+statsd-as3.iml
 target
+test/AllTests.as
 .idea
 bin
-statsd-as3.iml
-
