@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application
+    xmlns="http://ns.adobe.com/air/application/3.2"
+    minimumPatchLevel="0">
+    <id>org.helvector.StatsDRunner</id>
+    <name>
+        <text xml:lang="en">StatsDRunner</text>
+    </name>
+    <versionNumber>0.0.1</versionNumber>
+    <supportedProfiles>extendedDesktop</supportedProfiles>
+    <versionLabel>0.0.1</versionLabel>
+    <filename>StatsDRunner</filename>
+    <description>
+        <text xml:lang="en">Runs the Unit Tests for StatsD.</text>
+    </description>
+    <copyright>Copyright MMXIII Original author or authors</copyright>
+    <initialWindow>
+        <content>StatsDRunner.swf</content>
+        <systemChrome>standard</systemChrome>
+        <transparent>false</transparent>
+        <visible>false</visible>
+        <minimizable>true</minimizable>
+        <maximizable>true</maximizable>
+        <resizable>true</resizable>
+        <width>900</width>
+        <height>650</height>
+        <x>50</x>
+        <y>50</y>
+        <minSize>300 300</minSize>
+        <maxSize>1800 1200</maxSize>
+    </initialWindow>
+</application>

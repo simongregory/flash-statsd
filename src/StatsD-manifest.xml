@@ -1,0 +1,4 @@
+<?xml version='1.0'?>
+<componentPackage>
+	<component id="StatsD" class="org.helvector.statsd.StatsD" />
+</componentPackage>
