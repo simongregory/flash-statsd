@@ -37,28 +37,50 @@ public class StatsDTest
         instance = null;
     }
 
+    [Test(expects='Error')]
+    public function it_fails_to_instantiate_with_invalid_low_port_number():void
+    {
+        instance = new StatsD('127.0.0.1', 0);
+    }
+
+    [Test(expects='Error')]
+    public function it_fails_to_instantiate_with_invalid_high_port_number():void
+    {
+        instance = new StatsD('127.0.0.1', 65536);
+    }
+
+    [Test(async)]
+    public function it_coerces_invalid_port_numbers_to_integers_at_instantiation():void
+    {
+        instance = new StatsD('127.0.0.1', 8125.33333333);
+
+        expectReceiptOf('tubbs:1|c\n');
+
+        instance.counter('tubbs', 1);
+    }
+
     [Test(async)]
     public function it_counts():void
     {
-        expectReceiptOf('tree:1|c\n');
+        expectReceiptOf('pauline:1|c\n');
 
-        instance.counter('tree',1);
+        instance.counter('pauline', 1);
     }
 
     [Test(async)]
     public function it_increments():void
     {
-        expectReceiptOf('tree:1|c\n');
+        expectReceiptOf('edward:1|c\n');
 
-        instance.increment('tree');
+        instance.increment('edward');
     }
 
     [Test(async)]
     public function it_decrements():void
     {
-        expectReceiptOf('tree:-1|c\n');
+        expectReceiptOf('mickey:-1|c\n');
 
-        instance.decrement('tree');
+        instance.decrement('mickey');
     }
 
     [Test(async)]
@@ -72,17 +94,27 @@ public class StatsDTest
     [Test(async)]
     public function it_gauges():void
     {
-        expectReceiptOf('basil:5|g\n');
+        expectReceiptOf('barbra:5|g\n');
 
-        instance.gauge('basil',5);
+        instance.gauge('barbra',5);
     }
 
     [Test(async)]
     public function it_histograms():void
     {
-        expectReceiptOf('brush:5|h\n');
+        expectReceiptOf('herr-lipp:5|h\n');
 
-        instance.histogram('brush',5);
+        instance.histogram('herr-lipp',5);
+    }
+
+    [Test(async)]
+    public function it_uses_a_namespace_when_set():void
+    {
+        instance = new StatsD('127.0.0.1', 8125, 'legz');
+
+        expectReceiptOf('legz.akimbo:1|c\n');
+
+        instance.counter('akimbo',1);
     }
 
     private function dataReceived(event:DatagramSocketDataEvent, ...args):void
