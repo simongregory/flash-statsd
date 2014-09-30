@@ -3,3 +3,4 @@ target
 test/AllTests.as
 .idea
 bin
+.DS_Store
